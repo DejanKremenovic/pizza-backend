@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('/v1')->group(function() {
     Route::get('products', 'Api\ProductController@getProducts')->name('products');
     Route::get('products/{id}', 'Api\ProductController@getSingle')->name('products.single');
+    Route::post('orders', 'Api\OrderController@storeOrder')->name('orders');
 });
