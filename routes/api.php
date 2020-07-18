@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('/v1')->group(function() {
+    Route::get('products', 'Api\ProductController@getProducts')->name('products');
+    Route::get('products/{id}', 'Api\ProductController@getSingle')->name('products.single');
+});
