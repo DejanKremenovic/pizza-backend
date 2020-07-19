@@ -20,11 +20,15 @@ class OrderService {
     public function storeOrder($data)
     {
         $productService = new ProductService();
-        $order = Order::create([
+        $orderData = [
             'name' => $data['name'],
             'address' => $data['address'],
             'phone' => $data['phone']
-        ]);
+        ];
+        if(auth()->check()){
+            $orderData['user_id'] = auth()->user()->id;
+        }
+        $order = Order::create($orderData);
 
         foreach($data['products'] as $item) {
             $product = $productService->findById($item['id']);
