@@ -27,9 +27,9 @@ class OrderRequest extends FormRequest
             'products' => 'array|min:1',
             "products.*.id" => "required|integer|exists:products,id",
             "products.*.amount" => "required|integer|min:1",
-            'name' => 'string|min:3|max:100',
-            'address' => 'string|min:3|max:100',
-            'phone' => 'string|min:6|max:30',
+            'name' => 'required|string|min:1|max:100',
+            'address' => 'required|string|min:1|max:100',
+            'phone' => 'required|string|min:7|max:15',
         ];
     }
 }
