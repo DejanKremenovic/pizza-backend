@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\Api\OrderRequest;
 use App\Services\OrderService;
 
 class OrderController extends Controller
