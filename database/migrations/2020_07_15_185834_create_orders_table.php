@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name', 100);
             $table->string('address', 100);
-            $table->string('phone', 30);
+            $table->string('phone', 15);
             $table->timestamps();
 
             $table->foreign('user_id')
