@@ -18,13 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/v1')->group(function() {
+Route::prefix('/v1')->namespace('Api')->group(function() {
     // Auth routes
     Route::post('login', 'Auth\AuthController@login');
     Route::post('refresh', 'Auth\AuthController@refresh');
-    Route::get('products', 'Api\ProductController@getProducts')->name('products');
-    Route::get('products/{id}', 'Api\ProductController@getSingle')->name('products.single');
-    Route::post('orders', 'Api\OrderController@storeOrder')->name('orders');
+    Route::get('products', 'ProductController@getProducts')->name('products');
+    Route::get('products/{id}', 'ProductController@getSingle')->name('products.single');
+    Route::post('orders', 'OrderController@storeOrder')->name('orders');
 
     // Only authenticated users routes
     Route::middleware(['auth:api'])->group(function () {

@@ -19,6 +19,6 @@ class OrderController extends Controller
     {
         $data = $request->post();
         $this->service->storeOrder($data);
-        return response()->json(['message' => 'Thank you for ordering, your pizza will arrive soon.']);
+        return response()->json(['message' => __('success.order-stored')]);
     }
 }
